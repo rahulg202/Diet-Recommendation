@@ -13,7 +13,6 @@ A **Personalized Diet and Workout Recommendation System** that leverages advance
 - [Dataset](#dataset)
 - [Model Training](#model-training)
 - [System Architecture](#system-architecture)
-- [Installation and Deployment](#installation-and-deployment)
 - [Usage](#usage)
 - [Contact](#contact)
 
@@ -91,20 +90,28 @@ The dataset is curated by scraping the web for articles and data related to:
 
 ---
 
-## Installation and Deployment
+## Usage
 
-### Prerequisites:
-- Python 3.8 or higher
-- Flask
-- PyTorch
-- Transformers library
-- GPU (for inference)
+### Input
+1. Demographics: Age, gender, height, weight.  
+2. Health conditions: Diabetes, hypertension, etc.  
+3. Lifestyle: Sedentary, active, or athletic.  
 
-### Steps:
-1.  **Clone the Repository**:
+### Example
+| ![Image 1](https://github.com/user-attachments/assets/23a760ec-3ada-4788-a781-b994e8381e1b) | ![Image 2](https://github.com/user-attachments/assets/e1f2dea2-b7c7-415a-b0a1-968426902bfc) | ![Image 3](https://github.com/user-attachments/assets/206d12d6-6c29-409a-9acb-f4bc4bd3fe66) |
+|:-------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------:|
 
-### Steps:
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/<your-repo>/diet-recommendation-system.git
-   cd diet-recommendation-system
+
+
+   
+### Output
+- Personalized diet and workout recommendations.
+![image](https://github.com/user-attachments/assets/9693edc5-b141-4282-8e98-75340d7af611)
+
+---
+
+## Contact
+
+For access to the custom dataset or any queries, contact:  
+**Rahul Gupta**  
+📧 [rahul.gupta312002@gmail.com](mailto:rahul.gupta312002@gmail.com)
