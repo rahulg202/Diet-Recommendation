@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diet and Workouts Recommendations</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Background styling for the body */
+        body {
+            background: #f4f7fa;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Container for the form */
+        .container.mycont {
+            background-color: #ffffff;
+            color: #333;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        /* Header Styling */
+        h1 {
+            color: #4e73df;
+            font-weight: bold;
+        }
+
+        h3 {
+            color: #4e73df;
+            font-weight: bold;
+            margin-top: 20px;
+            border-bottom: 2px solid #4e73df;
+            padding-bottom: 5px;
+        }
+
+        /* Form Group and Label Styling */
+        .form-group label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Form Control Styling */
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: #4e73df;
+            box-shadow: 0 0 8px rgba(78, 115, 223, 0.2);
+        }
+
+        /* Checkbox Styling */
+        .form-check-label {
+            color: #333;
+        }
+
+        /* Button Styling */
+        .btn-primary {
+            background: #4e73df;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-weight: bold;
+            color: white;
+            transition: background 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #2e59d9;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mycont">
+        <h1 class="text-center">Diet and Workouts Recommendations</h1>
+
+        <form action="/recommend" method="post">
+            <!-- Basic Information -->
+            <h3>Basic Information</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="age">Age:</label>
+                        <input type="number" class="form-control" id="age" name="age" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="gender">Gender:</label>
+                        <select class="form-control" id="gender" name="gender" required>
+                            <option value="" disabled selected>Select</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="height">Height (m):</label>
+                        <input type="number" class="form-control" id="height" name="height" step="0.01" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="weight">Weight (kg):</label>
+                        <input type="number" class="form-control" id="weight" name="weight" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lifestyle & Health Goals -->
+            <h3>Lifestyle & Health Goals</h3>
+            <div class="form-group">
+                <label for="health_goal">Primary health goal:</label>
+                <select class="form-control" id="health_goal" name="health_goal" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="weight_loss">Weight loss</option>
+                    <option value="muscle_gain">Muscle gain</option>
+                    <option value="improve_energy">Improve energy</option>
+                    <option value="general_health">General health</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="activity_level">Daily activity level:</label>
+                <select class="form-control" id="activity_level" name="activity_level" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="sedentary">Sedentary</option>
+                    <option value="lightly_active">Lightly active</option>
+                    <option value="moderately_active">Moderately active</option>
+                    <option value="very_active">Very active</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="sleep">Sleep per night:</label>
+                <select class="form-control" id="sleep" name="sleep" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="<5_hours">< 5 hours</option>
+                    <option value="5-6_hours">5-6 hours</option>
+                    <option value="7-8_hours">7-8 hours</option>
+                    <option value=">8_hours">> 8 hours</option>
+                </select>
+            </div>
+
+            <!-- Diet Preferences -->
+            <h3>Diet Preferences</h3>
+            <div class="form-group">
+                <label for="diet_type">Diet type:</label>
+                <select class="form-control" id="diet_type" name="diet_type" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="non-vegetarian">Non-Vegetarian</option>
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="vegan">Vegan</option>
+                    <option value="keto">Keto</option>
+                    <option value="no_preference">No preference</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Allergies/restrictions:</label><br>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="dairy" name="allergies[]" value="dairy">
+                    <label class="form-check-label" for="dairy">Dairy</label>
+                </div>
+                <div class="form-check">
+                    <inplut class="form-check-input" type="checkbox" id="gluten" name="allergies[]" value="gluten">
+                    <label class="form-check-label" for="gluten">Gluten</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="nuts" name="allergies[]" value="nuts">
+                    <label class="form-check-label" for="nuts">Nuts</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="none" name="allergies[]" value="none">
+                    <label class="form-check-label" for="none">None</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fast_food_frequency">How often do you eat fast or processed foods?</label>
+                <select class="form-control" id="fast_food_frequency" name="fast_food_frequency" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="rarely">Rarely</option>
+                </select>
+            </div>
+
+            <!-- Health Conditions -->
+            <h3>Health Conditions</h3>
+            <div class="form-group">
+                <label>Any health conditions:</label><br>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="diabetes" name="health_conditions[]" value="diabetes">
+                    <label class="form-check-label" for="diabetes">Diabetes</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="hypertension" name="health_conditions[]" value="hypertension">
+                    <label class="form-check-label" for="hypertension">Hypertension</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="thyroid" name="health_conditions[]" value="thyroid">
+                    <label class="form-check-label" for="thyroid">Thyroid</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="none_health" name="health_conditions[]" value="none">
+                    <label class="form-check-label" for="none_health">None</label>
+                </div>
+            </div>
+
+            <!-- Physical Activity -->
+            <h3>Physical Activity</h3>
+            <div class="form-group">
+                <label for="exercise_frequency">Exercise frequency:</label>
+                <select class="form-control" id="exercise_frequency" name="exercise_frequency" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="daily">Daily</option>
+                    <option value="3-4_times_week">3-4 times a week</option>
+                    <option value="1-2_times_week">1-2 times a week</option>
+                    <option value="never">never</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Types of activities:</label><br>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="cardio" name="activities[]" value="cardio">
+                    <label class="form-check-label" for="cardio">Cardio</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="strength" name="activities[]" value="strength">
+                    <label class="form-check-label" for="strength">Strength</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="yoga" name="activities[]" value="yoga">
+                    <label class="form-check-label" for="yoga">Yoga</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="sports" name="activities[]" value="sports">
+                    <label class="form-check-label" for="sports">Sports</label>
+                </div>
+            </div>
+
+            <!-- Food Preferences -->
+            <h3>Food Preferences</h3>
+            <div class="form-group">
+                <label for="meal_preference">Meal preference:</label>
+                <select class="form-control" id="meal_preference" name="meal_preference" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="home_cooked">Home-cooked</option>
+                    <option value="restaurant">Restaurant</option>
+                    <option value="mixed">Mixed</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary btn-block">Get Recommendations</button>
+        </form>
+    </div>
+</body>
+</html>
